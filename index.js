@@ -1,6 +1,7 @@
 import chalk from 'chalk';
 import cors from 'cors';
 import express, { json } from 'express';
+import { users } from './src/models/userModel';
 
 const app = express();
 
@@ -30,7 +31,7 @@ app.post('/tweets', (req, res) => {
     return res.status(400).send('Todos os campos são obrigatórios!');
   }
 
-  const { avatar } = usuarios.find(user => user.username === username);
+  const { avatar } = users.find(user => user.username === username);
 
   tweets.push({ username, tweet, avatar });
 

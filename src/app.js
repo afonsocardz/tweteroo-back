@@ -12,21 +12,4 @@ const tweets = [];
 
 app.use(router);
 
-app.post('/sign-up', (req, res) => {
-  const { username, avatar } = req.body;
-
-  if (!username || !avatar) {
-    res.status(400).send('Todos os campos são obrigatórios!');
-    return;
-  }
-
-  usuarios.push({ username, avatar });
-
-  res.status(200).send('OK deu tudo certo');
-});
-
-function reverseTweets() {
-  return [...tweets].reverse();
-}
-
 export default app;
